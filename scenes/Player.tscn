@@ -131,6 +131,8 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="timeout" from="dashtimer" to="." method="_on_dashtimer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="cylce_timer" to="." method="_on_cylce_timer_timeout"]
