@@ -21,6 +21,7 @@ func _physics_process(delta):
 	path = nav.get_simple_path(pos,player.position)
 	#$Line2D.points = path
 	#$Line2D.set_as_toplevel(true)
+	## DEBUG: Used to see enemy pathing
 	
 	motion = position.direction_to(path[1]) * speed
 	move_and_slide(motion)
