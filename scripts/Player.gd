@@ -37,7 +37,7 @@ func _physics_process(delta):
 	
 	
 func get_input():
-	if dead == false:
+	if dead == false and dashing == false:
 		look_at(get_global_mouse_position())
 	
 	if Input.is_action_pressed("ui_up"):
@@ -57,7 +57,10 @@ func get_input():
 	
 	
 	if Input.is_action_just_pressed("Shift"):
+		
+		
 		if candash == true:
+			look_at(-motion.normalized())
 			speed *= 6
 			dashing = true
 			candash = false
