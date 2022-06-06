@@ -107,7 +107,7 @@ shadow_enabled = true
 wait_time = 0.2
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2( 0, -5 )
 shape = SubResource( 1 )
 one_way_collision_margin = 128.0
