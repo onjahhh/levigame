@@ -62,7 +62,7 @@ func get_input():
 
 func _dash():
 	if Input.is_action_just_pressed("space"):
-		if candash == true and motion >= Vector2(10,10):
+		if candash == true:
 			$AnimationPlayer.play("roll")
 			var dashLookDir = rad2deg(moveDir.angle())
 			self.set_rotation_degrees(dashLookDir)
