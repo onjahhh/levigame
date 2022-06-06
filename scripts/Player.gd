@@ -63,12 +63,6 @@ func get_input():
 		motion.x = lerp(motion.x , 0 , accel)
 	
 	
-	if Input.is_action_just_pressed("Shift"):
-		
-		
-		if candash == true:
-			look_at(-motion.normalized())
-			speed *= 6
 		
 
 func _dash():
