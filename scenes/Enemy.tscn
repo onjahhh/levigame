@@ -10,12 +10,14 @@ extents = Vector2( 12, 12 )
 radius = 12.5
 
 [sub_resource type="CircleShape2D" id=3]
+radius = 91.351
 
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.375, 0.375 )
@@ -28,12 +30,13 @@ width = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 2 )
+disabled = true
 
 [node name="AggroDetectZone" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroDetectZone"]
-scale = Vector2( 8, 8 )
 shape = SubResource( 3 )
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
-[connection signal="area_entered" from="AggroDetectZone" to="." method="_on_AggroDetectZone_area_entered"]
+[connection signal="body_entered" from="AggroDetectZone" to="." method="_on_AggroDetectZone_body_entered"]

@@ -23,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	$RichTextLabel.set_text(str(Engine.get_frames_per_second()))
 	moveDir = motion.normalized()
-	print(str(motion))
+	#print(str(motion))
 	
 	hitloc = $RayCast2D.get_collision_point()
 	$HitPoint.global_position = hitloc

@@ -54,7 +54,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource( 3 )
@@ -103,14 +103,13 @@ texture_scale = 0.39
 color = Color( 0.976471, 0.933333, 0.309804, 1 )
 shadow_enabled = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
+shape = SubResource( 1 )
+
 [node name="cylce_timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2( 0, -5 )
-shape = SubResource( 1 )
-one_way_collision_margin = 128.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 10.0
