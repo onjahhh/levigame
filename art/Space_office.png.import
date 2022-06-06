@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TEMP_WALLS.png-3eca034666ff736523c565ceb031403a.stex"
+path="res://.import/Space_office.png-ebc22c3c9ebb8c81d44df805382b9379.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TEMP_WALLS.png"
-dest_files=[ "res://.import/TEMP_WALLS.png-3eca034666ff736523c565ceb031403a.stex" ]
+source_file="res://art/Space_office.png"
+dest_files=[ "res://.import/Space_office.png-ebc22c3c9ebb8c81d44df805382b9379.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

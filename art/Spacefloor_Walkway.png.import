@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TEMP_FLOOR.PNG-3798744abffa1c6e83990510f8651055.stex"
+path="res://.import/Spacefloor_Walkway.png-0d0f90c8f3b80e93eb74e2624081e562.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TEMP_FLOOR.PNG"
-dest_files=[ "res://.import/TEMP_FLOOR.PNG-3798744abffa1c6e83990510f8651055.stex" ]
+source_file="res://art/Spacefloor_Walkway.png"
+dest_files=[ "res://.import/Spacefloor_Walkway.png-0d0f90c8f3b80e93eb74e2624081e562.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
