@@ -27,6 +27,26 @@ func _ready():
 	pass
 
 
+func __physics_process(delta):
+	match currentState:
+		state.PATROL:
+			pass
+		state.ENGAGE:
+			pos = position
+			path = nav.get_simple_path(pos,player.position)
+			#$Line2D.points = path
+			#$Line2D.set_as_toplevel(true)
+			## DEBUG: Used to see enemy pathing
+	
+			motion = position.direction_to(path[1]) * speed
+			move_and_slide(motion)
+	
+			if position == path[1]:
+				path.remove(0)
+		_:
+			print("Error!")
+
+
 func set_state(newState: int):
 	if newState == currentState:
 		return
@@ -55,16 +75,8 @@ func _on_HurtBox_area_entered(area):
 		_dead_check()
 
 
+
+
 func _on_AggroDetectZone_area_entered(area):
 	if area.is_in_group("Player"):
-		pos = position
-		path = nav.get_simple_path(pos,player.position)
-		#$Line2D.points = path
-		#$Line2D.set_as_toplevel(true)
-		## DEBUG: Used to see enemy pathing
-	
-		motion = position.direction_to(path[1]) * speed
-		move_and_slide(motion)
-	
-		if position == path[1]:
-			path.remove(0)
+		set_state(state.ENGAGE)
