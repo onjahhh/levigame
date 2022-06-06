@@ -5,10 +5,10 @@ onready var impactScene = preload("res://scenes/Impact.tscn")
 
 
 var setStartPoss : Vector2
-
+var moveDir : Vector2
 var boltready = true
 
-var speed = 200
+var speed = 250
 var accel = 0.1
 var motion = Vector2.ZERO
 var can_fire = true
@@ -18,27 +18,34 @@ var candash = true
 var dashing = false
 
 func _ready():
-	pass
+	$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
-	hitloc = $RayCast2D.get_collision_point()
-	$HitPoint.global_position = hitloc
+	$RichTextLabel.set_text(str(Engine.get_frames_per_second()))
+	moveDir = motion.normalized()
 	print(str(motion))
 	
+	hitloc = $RayCast2D.get_collision_point()
+	$HitPoint.global_position = hitloc
+	
+	if dead == false and dashing == false:
+		look_at(get_global_mouse_position())
+		get_input()
+		_shoot()
 	
 	var cam_state = get_global_mouse_position()
-	$Camera2D.offset_h = (cam_state.x - global_position.x) / (320 / 2.0)
-	$Camera2D.offset_v = (cam_state.y - global_position.y) / (180 / 2.0)
+	$Camera2D.offset_h = (cam_state.x - global_position.x) / (320 / 2)
+	$Camera2D.offset_v = (cam_state.y - global_position.y) / (180 / 2)
 
 	motion = move_and_slide(motion, Vector2.UP)
-	get_input()
-	_shoot()
+
 	_recoil()
-	
+	_dash()
 	
 func get_input():
 	if dead == false and dashing == false:
 		look_at(get_global_mouse_position())
+
 	
 	if Input.is_action_pressed("ui_up"):
 		motion.y = lerp(motion.y , -speed , accel)
@@ -62,10 +69,20 @@ func get_input():
 		if candash == true:
 			look_at(-motion.normalized())
 			speed *= 6
+		
+
+func _dash():
+	if Input.is_action_just_pressed("space"):
+		if candash == true:
+			$AnimationPlayer.play("roll")
+			var dashLookDir = rad2deg(moveDir.angle())
+			self.set_rotation_degrees(dashLookDir)
+			motion = moveDir * 600
 			dashing = true
 			candash = false
 			$dashtimer.start()
-			
+		else:
+			return
 		
 
 
@@ -112,9 +129,14 @@ func _on_cylce_timer_timeout():
 	$Muzzle/MuzzleFlash.enabled = false
 
 func _on_dashtimer_timeout():
-	candash = true
+	$AnimationPlayer.play("idle")
 	dashing = false
-	speed = 200
+	look_at(get_global_mouse_position())
+	$dash_cooldown.start()
+
+
+func _on_dash_cooldown_timeout():
+	candash = true
 
 
 
