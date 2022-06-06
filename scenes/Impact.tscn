@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/Impact.gd" type="Script" id=1]
 
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.544218, 0.77551, 1 )
 colors = PoolColorArray( 0.887695, 0.81512, 0.0970917, 1, 0.803828, 0.778293, 0.114596, 1, 0.720215, 0.717319, 0.382614, 1, 1, 1, 1, 0 )
