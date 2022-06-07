@@ -4,7 +4,7 @@ extends KinematicBody2D
 
 onready var nav : Navigation2D = get_node("/Env/NavMesh")
 onready var path = []
-onready var player = get_node("/root/Env/Player")
+onready var player = get_node("/root/Env/player")
 
 
 var pos = position
@@ -22,7 +22,6 @@ enum{
 }
 
 func _physics_process(_delta):
-	
 	
 	
 	move_and_slide(motion,Vector2.UP)
