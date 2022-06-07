@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 
 
-onready var nav : Navigation2D = get_node("/Env/NavMesh")
+onready var nav : Navigation2D = get_node("/root/Env/NavMesh")
 onready var path = []
-onready var player = get_node("/root/Env/player")
+onready var player = get_node("/root/Env/Player")
 
 
 var pos = position
