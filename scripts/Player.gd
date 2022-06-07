@@ -23,10 +23,10 @@ func _ready():
 func _physics_process(delta):
 	$RichTextLabel.set_text(str(Engine.get_frames_per_second()))
 	moveDir = motion.normalized()
-	#print(str(motion))
+	#print(str(get_tree().get_root().get_path_to(self)))
 	
 	hitloc = $RayCast2D.get_collision_point()
-	$HitPoint.global_position = hitloc
+	
 	
 	if dead == false and dashing == false:
 		look_at(get_global_mouse_position())
@@ -109,7 +109,7 @@ func _shoot():
 		
 		
 		tracer.startpos = $Muzzle.global_position
-		tracer.endpos = $HitPoint.global_position
+		tracer.endpos = hitloc
 		
 		owner.add_child(tracer)
 		owner.add_child(impact)

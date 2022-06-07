@@ -1,24 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/Man/yeest-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://rescourses/light.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://art/Man/yeest-Sheet_n.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
@@ -65,45 +52,37 @@ anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 4 )
 anims/roll = SubResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-texture = ExtResource( 2 )
-shadow_enabled = true
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 20, 0 )
 texture = ExtResource( 1 )
-normal_map = ExtResource( 4 )
 offset = Vector2( 21, -5 )
 hframes = 6
-frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.6, 1.6 )
 smoothing_enabled = true
 
-[node name="HitPoint" type="Polygon2D" parent="."]
-visible = false
-color = Color( 1, 0, 0, 1 )
-polygon = PoolVector2Array( 2, 2, -2, 2, -2, -2, 2, -2 )
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 11, 0 )
 enabled = true
 cast_to = Vector2( 1000, 0 )
-collision_mask = 13
+collision_mask = 5
 collide_with_areas = true
 
 [node name="Muzzle" type="Position2D" parent="."]
 position = Vector2( 61, 0 )
 
 [node name="MuzzleFlash" type="Light2D" parent="Muzzle"]
+position = Vector2( 2.80338, -9.09495e-13 )
+scale = Vector2( 1.32605, 1.0695 )
 enabled = false
 texture = ExtResource( 2 )
 texture_scale = 0.39
 color = Color( 0.976471, 0.933333, 0.309804, 1 )
+energy = 0.58
 shadow_enabled = true
+shadow_gradient_length = 1465.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -5 )
@@ -113,12 +92,6 @@ shape = SubResource( 1 )
 wait_time = 0.2
 one_shot = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 10.0
-margin_top = 15.0
-margin_right = 50.0
-margin_bottom = 55.0
-
 [node name="dashtimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
@@ -127,9 +100,11 @@ one_shot = true
 wait_time = 1.5
 one_shot = true
 
-[node name="cylce_timer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 50.0
+margin_bottom = 55.0
 
 [connection signal="timeout" from="cylce_timer" to="." method="_on_cylce_timer_timeout"]
 [connection signal="timeout" from="dashtimer" to="." method="_on_dashtimer_timeout"]

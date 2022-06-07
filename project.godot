@@ -100,11 +100,13 @@ Shift={
 2d_render/layer_3="ememy"
 2d_render/layer_4="doors"
 2d_render/layer_5="bullet"
+2d_render/layer_6="sight"
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemys"
 2d_physics/layer_4="doors"
 2d_physics/layer_5="bullet"
+2d_physics/layer_6="sight"
 
 [physics]
 

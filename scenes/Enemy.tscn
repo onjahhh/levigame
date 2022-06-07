@@ -27,12 +27,14 @@ texture = ExtResource( 1 )
 width = 2.0
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 2 )
 disabled = true
 
 [node name="AggroDetectZone" type="Area2D" parent="."]
+collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroDetectZone"]
